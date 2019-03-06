@@ -6,9 +6,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements ISlideView {
     private BottomNavigationView bottomNavigation;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements ISlideView {
     private int height;
     private int heightFrag;
     private RelativeLayout rlContainer;
+    private TextView textCartItemCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,5 +77,10 @@ public class MainActivity extends AppCompatActivity implements ISlideView {
         int newHeight = (int)(height - (newValue * height));
         bottomNavigation.getLayoutParams().height = newHeight;
         bottomNavigation.requestLayout();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }
